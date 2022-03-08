@@ -1,0 +1,4 @@
+﻿  SLink.cpp
+E:\Scuola\UNIve\MAGISTRALE\High performance computing\Progetto Nuovo\SLink\SLink.cpp(59,23): warning C4018: '<': errata corrispondenza tra signed e unsigned
+E:\Scuola\UNIve\MAGISTRALE\High performance computing\Progetto Nuovo\SLink\SLink.cpp(90,23): warning C4018: '<': errata corrispondenza tra signed e unsigned
+  SLink.vcxproj -> E:\Scuola\UNIve\MAGISTRALE\High performance computing\Progetto Nuovo\SLink\Debug\SLink.exe

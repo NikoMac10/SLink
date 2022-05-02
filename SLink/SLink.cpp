@@ -161,12 +161,12 @@ int main(){
 
         for (int j = 0; j < n; j++) {
             if (lambda[j] >= M[j]) {
-                M[(int)pi[j]] = (M[(int)pi[j]] < lambda[j]) ? M[(int)pi[j]] : lambda[j];
+                M[(int)pi[j]] = (M[(int)pi[j]] <= lambda[j]) ? M[(int)pi[j]] : lambda[j];
                 lambda[j] = M[j];
                 pi[j] = n + 1;
             }
             else
-                M[(int)pi[j]] = (M[(int)pi[j]] < lambda[j]) ? M[(int)pi[j]] : M[j];
+                M[(int)pi[j]] = (M[(int)pi[j]] <= M[j]) ? M[(int)pi[j]] : M[j];
         }
 
         for (int j = 0; j < n; j++) 

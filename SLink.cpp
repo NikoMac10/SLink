@@ -143,44 +143,60 @@ int main(){
     
     int n = 0;
 	int r = point.size();
-    for (int i = 1; i <= r; i++) {
-        //pair<float, float> appo = point[i];
+	
+	
+	for (int i = 1; i <= r; i++) {
+		//pair<float, float> appo = point[i];
 
 
-        float* M = (float*)malloc((n+1) * sizeof(float));
+		float* M = (float*)malloc((n+1) * sizeof(float));
 
-        pi[n+1] = n+1;
-        lambda[n+1] = numeric_limits<float>::infinity();
+		pi[n+1] = n+1;
+		lambda[n+1] = numeric_limits<float>::infinity();
 
-        for (int j = 1; j <= n; j++) {
-			M[j] = sqrt((point[j].first - point[n + 1].first) * (point[j].first - point[n + 1].first)
-			+ (point[j].second - point[n + 1].second) * (point[j].second - point[n + 1].second));
-            
-            //M[j] = abs(point[j].first - point[n + 1].first) + abs(point[j].second - point[n + 1].second);
-        }
+		
+		
+		#pragma omp parallel num_threads(8)
+		{
+			#pragma omp for \
+			schedule(static) ordered
+			for (int j = 1; j <= n; j++) {
+				M[j] = sqrt((point[j].first - point[n + 1].first) * (point[j].first - point[n + 1].first)
+				+ (point[j].second - point[n + 1].second) * (point[j].second - point[n + 1].second));
+				
+				//M[j] = abs(point[j].first - point[n + 1].first) + abs(point[j].second - point[n + 1].second);
+			}
+		}
 
-        for (int j = 1; j <= n; j++) {
-            if (lambda[j] >= M[j]) {
-                M[(int)pi[j]] = (M[(int)pi[j]] <= lambda[j]) ? M[(int)pi[j]] : lambda[j];
-                lambda[j] = M[j];
-                pi[j] = n+1;
-            }
-            else
-                M[(int)pi[j]] = (M[(int)pi[j]] <= M[j]) ? M[(int)pi[j]] : M[j];
-        }
+			for (int j = 1; j <= n; j++) {
+				if (lambda[j] >= M[j]) {
+					M[(int)pi[j]] = (M[(int)pi[j]] <= lambda[j]) ? M[(int)pi[j]] : lambda[j];
+					lambda[j] = M[j];
+					pi[j] = n+1;
+				}
+				else
+					M[(int)pi[j]] = (M[(int)pi[j]] <= M[j]) ? M[(int)pi[j]] : M[j];
+			}
 
-        for (int j = 1; j <= n; j++) 
-            if (lambda[j] >= lambda[(int)pi[j]]) 
-                pi[j] = n+1;
-         
+			
+		#pragma omp parallel num_threads(8)
+		{
+			#pragma omp for \
+			schedule(static) ordered
+			for (int j = 1; j <= n; j++) 
+				if (lambda[j] >= lambda[(int)pi[j]]) 
+					pi[j] = n+1;
 		 
-        n++;
+		 
+		} 
+		n++;
 		
 		cout<<i<<"\n";
-    }
+	}
+	
 
     
-
+	
     for (int i = 0; i < pi.size(); i++)    //decrement for compatibility
         pi[i]--;
 		

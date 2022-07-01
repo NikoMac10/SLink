@@ -2,7 +2,7 @@ This Repository contains HPC(High performance computing) project, made by Nicola
 This project was made using MinGW compiler on Windows, there may be some differences
 in compiling/running source files/executable on different SO with different compilers. 
 
-This zipped folder contains:
+This repository contains:
 - PDF file with the lesson on Hierarchical Clustering (SLINK), and the specification of the project
 - PDF file with the project report.
 - SLINK_Sequential.cpp: the actual clustering algorithm implemented in C++ in sequential version

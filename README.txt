@@ -1,7 +1,8 @@
-This project was made using MinGW compiler on Windows, there may be some differences
+This Repository contains HPC project, this was made using MinGW compiler on Windows, there may be some differences
 in compiling/running source files/executable on different SO with different compilers. 
 
 This zipped folder contains:
+- 
 - SLINK_Sequential.cpp: the actual clustering algorithm implemented in C++ in sequential version
 - SLINK_Parallel.cpp: the actual clustering algorithm implemented in C++ in parallel version (4 core)
 - *.bat files to compile and execute the code more comfortably under windows.

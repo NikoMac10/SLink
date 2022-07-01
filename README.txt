@@ -2,7 +2,8 @@ This Repository contains HPC project, this was made using MinGW compiler on Wind
 in compiling/running source files/executable on different SO with different compilers. 
 
 This zipped folder contains:
-- 
+- PDF file with the lesson on Hierarchical Clustering (SLINK), and the specification of the project
+- PDF file with the project report.
 - SLINK_Sequential.cpp: the actual clustering algorithm implemented in C++ in sequential version
 - SLINK_Parallel.cpp: the actual clustering algorithm implemented in C++ in parallel version (4 core)
 - *.bat files to compile and execute the code more comfortably under windows.

@@ -1,4 +1,5 @@
-This Repository contains HPC project, this was made using MinGW compiler on Windows, there may be some differences
+This Repository contains HPC(High performance computing) project, made by Nicolas Pietro Martignon(870034) and Thomas Visentin(869438).
+This project was made using MinGW compiler on Windows, there may be some differences
 in compiling/running source files/executable on different SO with different compilers. 
 
 This zipped folder contains:
